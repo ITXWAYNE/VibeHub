@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium - Vibe Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <header>
+    <img src="image/vibehub-logo.jpg" alt="VibeHub Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="upload.html">Upload Music</a></li>
+        <li><a href="playlists.html">Playlists</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="premium.html">Premium</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="premium">
+    <h2>Premium Features</h2>
+    <p>Unlock exclusive features by subscribing to Premium.</p>
+  </section>
+  <div class="music-player">
+    <div class="track-info">
+        <img src="cover.jpg" alt="Cover Art" class="cover-art">
+        <div class="track-details">
+            <p class="track-title">Track Name</p>
+            <p class="artist-name">Artist Name</p>
+        </div>
+    </div>
+    <div class="controls">
+        <button id="prev"><i class="fas fa-backward"></i></button>
+        <button id="play"><i class="fas fa-play"></i></button>
+        <button id="next"><i class="fas fa-forward"></i></button>
+    </div>
+    <input type="range" id="progress" value="0">
+    <div class="volume">
+        <i class="fas fa-volume-up"></i>
+        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+    </div>
+</div>
+<audio id="audio-player" src="song.mp3"></audio>
+  <footer>
+    <p>&copy; 2025 Vibe Hub | All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

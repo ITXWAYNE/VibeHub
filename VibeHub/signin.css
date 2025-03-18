@@ -1,0 +1,325 @@
+}
+body.dark-theme {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: 100vh; /* Makes the body take full height of the viewport */
+  margin: 0; /* Removes default margin */
+}
+
+.login-container, .profile-container {
+  width: 400px;
+  padding: 20px;
+  text-align: center;
+  background-color: #1f1f1f; /* Optional: Adds a background to the container */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+.auth-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px; /* Adjusts space between buttons */
+  margin-bottom: 10px; /* Adjusts space between buttons */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.google {
+  background-color: #db4437;
+  color: white;
+}
+
+.facebook {
+  background-color: #4267B2;
+  color: white;
+}
+
+.email {
+  background-color: #444;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+
+.dark-theme {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.upload-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: #242424;
+  border-radius: 8px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3700b3;
+}
+/* Profile Page Styles */
+.profile-container {
+  width: 40%;
+  margin: 50px auto;
+  text-align: center;
+  background-color: #242036;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.profile-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #4A90E2;
+  margin-bottom: 15px;
+}
+
+.profile-container h2 {
+  font-size: 22px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.profile-container p {
+  font-size: 16px;
+  color: rgb(175, 158, 202);
+}
+
+.profile-container button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4A90E2;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-container button:hover {
+  background-color: #3b7bd5;
+}
+
+/* Logout Button */
+#logoutBtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#logoutBtn:hover {
+  background-color: #c0392b;
+}
+
+/* 🎵 General Styles playlist section */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🎵 Header & Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #1a1a1a;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+  font-size: 24px;
+  color: #f1f1f1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* 🎵 Playlist Container */
+#playlistContainer {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+#playlists {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.playlist-card {
+  background-color: #242036;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.playlist-card:hover {
+  transform: scale(1.05);
+}
+
+.playlist-card h3 {
+  font-size: 18px;
+  color: white;
+}
+
+#createPlaylistBtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#createPlaylistBtn:hover {
+  background-color: #45a049;
+}
+
+/* 🎵 Playlist Details */
+#playlistDetails {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#playlistDetails h2 {
+  color: #f1f1f1;
+}
+
+#songList {
+  list-style: none;
+  padding: 0;
+}
+
+#songList li {
+  background: #333;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.removeSong {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#addSongContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#songInput {
+  width: 70%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+#addSongButton {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#closePlaylist {
+  background-color: #ff4444;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* 🎵 Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: #ccc;
+  margin-top: 50px;
+}

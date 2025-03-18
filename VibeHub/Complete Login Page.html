@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Streamer or Artist</title>
+  <link rel="stylesheet" href="signin.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
+
+  <!-- Link to your external Firebase config file -->
+  <script src="firebase-config.js"></script>
+
+  <!-- Include Google Icon (for Google login) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dark-theme">
+  <div class="login-container">
+    <h2>Login or Create Account</h2>
+
+    <!-- Login Form -->
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    
+    <!-- Role selection -->
+    <div>
+      <label for="role">Select Account Type:</label>
+      <select id="role">
+        <option value="streamer">Streamer</option>
+        <option value="artist">Artist</option>
+      </select>
+    </div>
+    
+    <button class="auth-btn" id="login-btn">Login</button>
+    <button class="auth-btn" id="signup-btn">Sign Up</button>
+
+    <!-- Google login button with icon -->
+    <button class="auth-btn google" id="google-login-btn">
+      <i class="fab fa-google"></i> Login with Google
+    </button>
+    
+    <div class="error" id="error-message"></div>
+  </div>
+
+  <!-- Profile Container -->
+  <div class="profile-container hidden" id="profile-container">
+    <h2>Welcome!</h2>
+    <div>
+      <img class="profile-avatar" id="profile-avatar" src="" alt="Avatar">
+    </div>
+    <p>Role: <span id="user-role"></span></p>
+    <p id="user-email"></p>
+  </div>
+
+  <!-- Firebase Authentication Logic (JS Code) -->
+  <script>
+    // Elements
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+    const googleLoginBtn = document.getElementById('google-login-btn');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const errorMessage = document.getElementById('error-message');
+    const profileContainer = document.getElementById('profile-container');
+    const profileAvatar = document.getElementById('profile-avatar');
+    const userEmail = document.getElementById('user-email');
+    const userRole = document.getElementById('user-role');
+    const roleSelect = document.getElementById('role');
+
+    // Google Login
+    googleLoginBtn.addEventListener('click', () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          saveUserRole(user);
+        })
+        .catch((error) => {
+          errorMessage.textContent = `Error: ${error.message}`;
+        });
+    });
+
+    // Sign up
+    signupBtn.addEventListener('click', () => {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+      const role = roleSelect.value;
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          saveUserRole(user, role);
+        })
+        .catch((error) => {
+          errorMessage.textContent = `Error: ${error.message}`;
+        });
+    });
+
+    // Login
+    loginBtn.addEventListener('click', () => {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          loadUserRole(user);
+        })
+        .catch((error) => {
+          errorMessage.textContent = `Error: ${error.message}`;
+        });
+    });
+
+    // Save user role in Firestore
+    function saveUserRole(user, role) {
+      const userRef = firebase.firestore().collection('users').doc(user.uid);
+      userRef.set({
+        email: user.email,
+        role: role,
+        avatar: user.photoURL || '',
+      })
+      .then(() => {
+        loadUserRole(user);
+      })
+      .catch((error) => {
+        errorMessage.textContent = `Error: ${error.message}`;
+      });
+    }
+
+    // Load user role and display profile
+    function loadUserRole(user) {
+      const userRef = firebase.firestore().collection('users').doc(user.uid);
+      userRef.get()
+        .then((doc) => {
+          if (doc.exists) {
+            const data = doc.data();
+            profileContainer.classList.remove('hidden');
+            profileAvatar.src = data.avatar;
+            userEmail.textContent = `Email: ${data.email}`;
+            userRole.textContent = `Role: ${data.role}`;
+          }
+        })
+        .catch((error) => {
+          errorMessage.textContent = `Error: ${error.message}`;
+        });
+    }
+  </script>
+</body>
+</html>

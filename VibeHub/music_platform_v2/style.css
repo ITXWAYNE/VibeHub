@@ -1,0 +1,379 @@
+/* Basic Dark Theme */
+body.dark-theme {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #1a1a1a;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo */
+.logo {
+  width: 100px;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: rgb(175, 158, 202);
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* Search Bar */
+.search-container {
+  margin: 50px;
+  position: relative;
+}
+
+.search-container input {
+  width: 550px;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 100px;
+  border: 2px solid blue;
+  box-shadow: 0px 2px 5px rgba(0, 0, 255, 0.5);
+}
+
+/* Main Content */
+section {
+  margin-top: 70px;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Song Grid */
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+/* Song Card */
+.song-card {
+  background-color: #242036;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.song-card:hover {
+  transform: scale(1.05);
+}
+
+/* Music Player */
+.music-player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+}
+
+.cover-art {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.track-details {
+  font-size: 14px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+#progress {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+}
+
+.volume input {
+  margin-left: 5px;
+}
+
+/* Upload & Download Forms */
+.container {
+  width: 50%;
+  margin: 50px auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input,
+button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background: #1db954;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #17a34a;
+}
+
+/* Settings Panel */
+#settings-panel {
+  position: fixed;
+  top: 50px;
+  right: -250px;
+  width: 250px;
+  background: #222;
+  padding: 20px;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#settings-panel.active {
+  right: 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a;
+}
+/* Upload Page Styling */
+.upload-container {
+  width: 90%;
+  max-width: 500px;
+  margin: 40px auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.upload-container h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  text-align: left;
+  font-weight: bold;
+  color: #ccc;
+  font-size: 14px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  background: #333;
+  color: white;
+  font-size: 14px;
+}
+
+input[type="file"] {
+  border: 1px solid #555;
+  padding: 6px;
+}
+
+.upload-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-type label {
+  color: white;
+}
+
+button {
+  background: #1db954;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #17a34a;
+}
+body.dark-theme {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.login-container, .profile-container, .admin-container, .upload-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 50px auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #1db954;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #17a34a;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+body.dark-theme {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.login-container, .profile-container {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.auth-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.google { background-color: #db4437; color: white; }
+.facebook { background-color: #4267B2; color: white; }
+.email { background-color: #444; color: white; }
+
+.hidden { display: none; }
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.upload-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: #242424;
+  border-radius: 8px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3700b3;
+}

@@ -1,0 +1,28 @@
+document.getElementById('settings-btn').addEventListener('click', function() {
+    document.getElementById('settings-panel').classList.toggle('active');
+});
+
+// Fake music list for downloads
+const musicList = [
+    { title: "Track 1", artist: "Artist 1", file: "track1.mp3" },
+    { title: "Track 2", artist: "Artist 2", file: "track2.mp3" }
+];
+
+// Display music list
+const listContainer = document.getElementById('music-list');
+if (listContainer) {
+    musicList.forEach(song => {
+        const songElement = document.createElement('div');
+        songElement.innerHTML = `
+            <p><strong>${song.title}</strong> by ${song.artist}</p>
+            <a href="${song.file}" download>Download</a>
+        `;
+        listContainer.appendChild(songElement);
+    });
+}
+
+// Handle Upload (Fake Function)
+document.getElementById('uploadForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Music uploaded successfully!');
+});

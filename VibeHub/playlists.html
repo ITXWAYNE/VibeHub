@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Vibe Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="dark-theme">
+  <header>
+    <header>
+      <img src="image/vibehub-logo.jpg" alt="VibeHub Logo" class="logo">
+      <script src="Firebase Configuration.js"></script>
+  </header>
+    
+      <nav>
+        <ul>
+          <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="browse.html"><i class="fas fa-search"></i> Browse</a></li>
+          <li><a href="playlists.html"><i class="fas fa-music"></i> Playlists</a></li>
+          <li><a href="downloads.html"><i class="fas fa-download"></i> Downloads</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+
+        
+    </section>
+
+    <!-- Sticky Music Player -->
+<link rel="stylesheet" href="musicplayer.css">
+
+<div class="music-player">
+    <div class="track-info">
+        <img src="cover.jpg" alt="Cover Art" class="cover-art">
+        <div class="track-details">
+            <p class="track-title">Track Name</p>
+            <p class="artist-name">Artist Name</p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="shuffle"><i class="fas fa-random"></i></button>
+        <button id="prev"><i class="fas fa-backward"></i></button>
+        <button id="play-pause"><i class="fas fa-play"></i></button>
+        <button id="next"><i class="fas fa-forward"></i></button>
+        <button id="repeat"><i class="fas fa-redo"></i></button>
+    </div>
+
+    <input type="range" id="progress" value="0">
+
+    <div class="volume">
+        <i class="fas fa-volume-up"></i>
+        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+    </div>
+</div>
+
+<audio id="audio-player" src="song.mp3"></audio>
+
+<script src="musicplayer.js"></script>
+
+</body>
+</html>

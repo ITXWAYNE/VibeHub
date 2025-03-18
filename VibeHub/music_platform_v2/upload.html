@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Music - VibeHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <header>
+    <h1>Upload Your Music</h1>
+  </header>
+
+  <div class="upload-container">
+    <form id="upload-form">
+      <label>Song Title:</label>
+      <input type="text" id="title" required>
+
+      <label>Genre:</label>
+      <select id="genre">
+        <option value="Hip-Hop">Hip-Hop</option>
+        <option value="Afrobeats">Afrobeats</option>
+        <option value="Amapiano">Amapiano</option>
+        <option value="Pop">Pop</option>
+      </select>
+
+      <label>Upload Type:</label>
+      <select id="upload-type">
+        <option value="single">Single</option>
+        <option value="album">Album</option>
+      </select>
+
+      <label>Record Label:</label>
+      <input type="text" id="record-label">
+
+      <label>Album Cover:</label>
+      <input type="file" id="cover" accept="image/*">
+
+      <label>Music File:</label>
+      <input type="file" id="music-file" accept="audio/*">
+
+      <label>Payment Method:</label>
+      <select id="payment-method">
+        <option value="free">Free</option>
+        <option value="paid">Paid Upload</option>
+      </select>
+
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+
+  <script type="module">
+    import { db, auth } from "./firebase-config.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+    import { collection, addDoc } from "firebase/firestore";
+
+    const storage = getStorage();
+    const form = document.getElementById("upload-form");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const user = auth.currentUser;
+      if (!user) {
+        alert("You need to log in to upload music.");
+        return;
+      }
+
+      const title = document.getElementById("title").value;
+      const genre = document.getElementById("genre").value;
+      const uploadType = document.getElementById("upload-type").value;
+      const recordLabel = document.getElementById("record-label").value;
+      const coverFile = document.getElementById("cover").files[0];
+      const musicFile = document.getElementById("music-file").files[0];
+      const paymentMethod = document.getElementById("payment-method").value;
+
+      if (!coverFile || !musicFile) {
+        alert("Please upload a music file and album cover.");
+        return;
+      }
+
+      // Upload files to Firebase Storage
+      const coverRef = ref(storage, `covers/${coverFile.name}`);
+      const musicRef = ref(storage, `music/${musicFile.name}`);
+
+      await uploadBytes(coverRef, coverFile);
+      await uploadBytes(musicRef, musicFile);
+
+      const coverURL = await getDownloadURL(coverRef);
+      const musicURL = await getDownloadURL(musicRef);
+
+      // Save song details to Firestore
+      await addDoc(collection(db, "songs"), {
+        title,
+        genre,
+        uploadType,
+        recordLabel,
+        coverURL,
+        musicURL,
+        paymentMethod,
+        userId: user.uid,
+        uploadedAt: new Date()
+      });
+
+      alert("Upload successful!");
+      form.reset();
+    });
+  </script>
+</body>
+</html>

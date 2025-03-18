@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeHub - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <div class="login-container">
+    <h2>Login to VibeHub</h2>
+    <button id="google-login">Sign in with Google</button>
+  </div>
+
+  <script type="module">
+    import { googleLogin } from "./firebase-config.js";
+    document.getElementById("google-login").addEventListener("click", googleLogin);
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1d1d1d;
+    color: white;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Left-side background image */
+.auth-left {
+    flex: 1;
+    background: url('image/nip.jpg') no-repeat center center/cover;
+}
+
+/* Right-side auth box */
+.auth-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.9);
+}
+
+/* Auth container */
+.auth-box {
+    background: rgba(40, 40, 40, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px;
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #3a3a3a;
+    color: white;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #00c853;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #009624;
+}
+
+/* Forgot password */
+.forgot-password {
+    color: #ff9800;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Social login */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-login button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.social-login i {
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-login i:hover {
+    opacity: 0.8;
+}
+
+.google-icon {
+    background: #db4437;
+}
+
+.facebook-icon {
+    background: #4267B2;
+}
+
+.twitter-icon {
+    background: #1DA1F2;
+}
